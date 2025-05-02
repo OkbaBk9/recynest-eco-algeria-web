@@ -43,7 +43,6 @@ const Navbar = () => {
           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-recynest-medium to-recynest-dark flex items-center justify-center shadow-lg">
             <span className="text-white font-bold text-lg">R</span>
           </div>
-          <span className="text-recynest-dark font-bold text-xl">Recynest</span>
         </motion.div>
 
         <div className="hidden lg:flex items-center space-x-6">
