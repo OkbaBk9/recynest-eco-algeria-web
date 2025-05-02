@@ -1,12 +1,18 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <section className="pt-32 pb-20 md:pt-40 md:pb-28 bg-hero-pattern relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center"
+        >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 gradient-text">
             Recycling Made Rewarding with Recynest
           </h1>
@@ -14,19 +20,42 @@ const Hero = () => {
             Drop off your recyclables. Earn rewards. Support a greener Algeria.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-recynest-dark hover:bg-recynest-dark/90 text-white text-lg rounded-full px-8 py-6">
-              Start Recycling
-            </Button>
-            <Button variant="outline" className="border-recynest-medium text-recynest-dark hover:bg-recynest-medium/10 text-lg rounded-full px-8 py-6">
-              Explore Drop Points
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <Button className="glass-dark text-white text-lg rounded-full px-8 py-6 hover:bg-recynest-dark/90">
+                Start Recycling
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <Button variant="outline" className="glass-button border-recynest-medium text-recynest-dark text-lg rounded-full px-8 py-6">
+                Explore Drop Points
+              </Button>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Decorative elements */}
       <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-recynest-medium/20 rounded-full blur-3xl"></div>
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-recynest-medium/30 rounded-full blur-3xl"></div>
+      
+      {/* Animated floating elements */}
+      <motion.div 
+        animate={{ y: [0, -15, 0], opacity: [0.7, 1, 0.7] }}
+        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+        className="absolute top-1/4 right-1/4 w-16 h-16 bg-recynest-light rounded-full blur-xl"
+      ></motion.div>
+      
+      <motion.div 
+        animate={{ y: [0, 15, 0], opacity: [0.5, 0.8, 0.5] }}
+        transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
+        className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-recynest-medium/20 rounded-full blur-xl"
+      ></motion.div>
 
       <div className="absolute bottom-0 left-0 right-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
